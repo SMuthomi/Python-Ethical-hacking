@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
 import scapy.all as scapy
-import optparse
+import argparse
 
 
 def get_arguments():
-    parse = optparse.OptionParser()
-    parse.add_option("-t", "--target", dest="target", help="Target IP / IP range")
-    (options, arguments) = parse.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_arguments("-t", "--target", dest="target", help="Target IP / IP range")
+    options = parse.parse_args()
     if not options.target:
-        parse.error("[-] Please specify a target, use --help for more info. ")
+        parser.error("[-] Please specify a target, use --help for more info. ")
     return options
 
 
